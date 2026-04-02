@@ -1,10 +1,23 @@
+"use client";
+
+import { useMemo, useState } from "react";
 import { Categories } from "@/components/categories";
 import { DailyCard } from "@/components/daily-card";
 import { KnowledgeLibrary } from "@/components/knowledge-library";
 import { dailyKnowledge, knowledgeCards } from "@/data/knowledge-data";
 
 export default function Home() {
+  const [selectedCategory, setSelectedCategory] = useState("All");
+
   const categories = [...new Set(knowledgeCards.map((card) => card.category))];
+
+  const filteredCards = useMemo(() => {
+    if (selectedCategory === "All") {
+      return knowledgeCards;
+    }
+
+    return knowledgeCards.filter((card) => card.category === selectedCategory);
+  }, [selectedCategory]);
 
   return (
     <main className="min-h-screen bg-[#f3f6fb] text-slate-900">
@@ -47,12 +60,16 @@ export default function Home() {
               <div className="mt-6 h-28 rounded-[20px] bg-slate-50" />
             </div>
 
-            <Categories categories={categories} />
+            <Categories
+              categories={categories}
+              selectedCategory={selectedCategory}
+              onSelectCategory={setSelectedCategory}
+            />
           </div>
         </section>
 
         <div className="mt-6">
-          <KnowledgeLibrary cards={knowledgeCards} />
+          <KnowledgeLibrary cards={filteredCards} />
         </div>
       </div>
     </main>
