@@ -9,6 +9,7 @@ import { dailyKnowledge, knowledgeCards } from "@/data/knowledge-data";
 
 export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [isDailyCardCompleted, setIsDailyCardCompleted] = useState(false);
 
   const categories = [...new Set(knowledgeCards.map((card) => card.category))];
 
@@ -47,6 +48,10 @@ export default function Home() {
             title={dailyKnowledge.title}
             description={dailyKnowledge.description}
             readTime={dailyKnowledge.readTime}
+            isCompleted={isDailyCardCompleted}
+            onToggleComplete={() =>
+              setIsDailyCardCompleted((prevState) => !prevState)
+            }
           />
 
           <div className="grid gap-6">
