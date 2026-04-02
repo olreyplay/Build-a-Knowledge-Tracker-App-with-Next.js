@@ -24,7 +24,7 @@ export function Categories({
           onClick={() => onSelectCategory("All")}
           className={`rounded-full px-4 py-2 text-sm font-medium transition ${
             selectedCategory === "All"
-              ? "bg-slate-900 text-white"
+              ? "bg-slate-900 text-white shadow"
               : "border border-slate-200 bg-slate-50 text-slate-700 hover:bg-slate-100"
           }`}
         >
@@ -37,7 +37,7 @@ export function Categories({
             onClick={() => onSelectCategory(category)}
             className={`rounded-full px-4 py-2 text-sm font-medium transition ${
               selectedCategory === category
-                ? "bg-slate-900 text-white"
+                ? "bg-slate-900 text-white shadow"
                 : "border border-slate-200 bg-slate-50 text-slate-700 hover:bg-slate-100"
             }`}
           >

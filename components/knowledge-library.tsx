@@ -32,11 +32,11 @@ export function KnowledgeLibrary({ cards }: KnowledgeLibraryProps) {
           </p>
         </div>
       ) : (
-        <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {cards.map((card) => (
             <article
               key={card.id}
-              className="rounded-[22px] border border-slate-200 bg-slate-50 p-5 transition hover:-translate-y-0.5 hover:shadow-md"
+              className="group cursor-pointer rounded-[22px] border border-slate-200 bg-slate-50 p-5 transition duration-200 hover:-translate-y-1 hover:bg-white hover:shadow-lg"
             >
               <div className="flex items-center justify-between gap-3">
                 <span className="rounded-full bg-white px-3 py-1 text-xs font-semibold text-slate-500 shadow-sm">
@@ -46,7 +46,7 @@ export function KnowledgeLibrary({ cards }: KnowledgeLibraryProps) {
                 <span className="text-sm text-slate-400">{card.readTime}</span>
               </div>
 
-              <h3 className="mt-4 text-lg font-semibold leading-7 text-slate-900">
+              <h3 className="mt-4 text-lg font-semibold leading-7 text-slate-900 transition group-hover:text-slate-700">
                 {card.title}
               </h3>
 
