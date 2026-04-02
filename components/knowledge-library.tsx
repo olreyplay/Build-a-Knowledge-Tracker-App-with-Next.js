@@ -1,10 +1,4 @@
-type KnowledgeCard = {
-  id: number;
-  title: string;
-  description: string;
-  category: string;
-  readTime: string;
-};
+import { KnowledgeCard } from "@/types/knowledge";
 
 type KnowledgeLibraryProps = {
   cards: KnowledgeCard[];

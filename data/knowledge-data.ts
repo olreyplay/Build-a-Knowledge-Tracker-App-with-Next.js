@@ -1,3 +1,5 @@
+import { KnowledgeCard } from "@/types/knowledge";
+
 export const dailyKnowledge = {
   title: "Why spaced repetition works better than cramming",
   description:
@@ -5,7 +7,7 @@ export const dailyKnowledge = {
   readTime: "2 min read",
 };
 
-export const knowledgeCards = [
+export const knowledgeCards: KnowledgeCard[] = [
   {
     id: 1,
     title: "The brain learns better through repetition",
