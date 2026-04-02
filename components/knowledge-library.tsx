@@ -28,30 +28,41 @@ export function KnowledgeLibrary({ cards }: KnowledgeLibraryProps) {
         </div>
       </div>
 
-      <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-        {cards.map((card) => (
-          <article
-            key={card.id}
-            className="rounded-[22px] border border-slate-200 bg-slate-50 p-5 transition hover:-translate-y-0.5 hover:shadow-md"
-          >
-            <div className="flex items-center justify-between gap-3">
-              <span className="rounded-full bg-white px-3 py-1 text-xs font-semibold text-slate-500 shadow-sm">
-                {card.category}
-              </span>
+      {cards.length === 0 ? (
+        <div className="mt-6 rounded-[22px] border border-dashed border-slate-200 bg-slate-50 p-10 text-center">
+          <h3 className="text-lg font-semibold text-slate-900">
+            No cards found
+          </h3>
+          <p className="mt-2 text-sm leading-6 text-slate-600">
+            Try selecting another category to see more knowledge cards.
+          </p>
+        </div>
+      ) : (
+        <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          {cards.map((card) => (
+            <article
+              key={card.id}
+              className="rounded-[22px] border border-slate-200 bg-slate-50 p-5 transition hover:-translate-y-0.5 hover:shadow-md"
+            >
+              <div className="flex items-center justify-between gap-3">
+                <span className="rounded-full bg-white px-3 py-1 text-xs font-semibold text-slate-500 shadow-sm">
+                  {card.category}
+                </span>
 
-              <span className="text-sm text-slate-400">{card.readTime}</span>
-            </div>
+                <span className="text-sm text-slate-400">{card.readTime}</span>
+              </div>
 
-            <h3 className="mt-4 text-lg font-semibold leading-7 text-slate-900">
-              {card.title}
-            </h3>
+              <h3 className="mt-4 text-lg font-semibold leading-7 text-slate-900">
+                {card.title}
+              </h3>
 
-            <p className="mt-3 text-sm leading-6 text-slate-600">
-              {card.description}
-            </p>
-          </article>
-        ))}
-      </div>
+              <p className="mt-3 text-sm leading-6 text-slate-600">
+                {card.description}
+              </p>
+            </article>
+          ))}
+        </div>
+      )}
     </section>
   );
 }
