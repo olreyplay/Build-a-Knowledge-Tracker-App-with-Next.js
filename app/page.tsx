@@ -1,3 +1,5 @@
+import { DailyCard } from "@/components/daily-card";
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#f3f6fb] text-slate-900">
@@ -22,26 +24,11 @@ export default function Home() {
         </section>
 
         <section className="mt-6 grid gap-6 xl:grid-cols-[1.3fr_0.7fr]">
-          <div className="rounded-[28px] border border-slate-200/80 bg-white p-6 shadow-[0_16px_40px_rgba(15,23,42,0.06)]">
-            <div className="flex items-center justify-between gap-4">
-              <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-400">
-                  Today&apos;s Card
-                </p>
-                <h2 className="mt-2 text-2xl font-semibold tracking-tight text-slate-900">
-                  Daily knowledge spotlight
-                </h2>
-              </div>
-
-              <div className="rounded-full bg-slate-100 px-3 py-1 text-sm font-medium text-slate-500">
-                2 min read
-              </div>
-            </div>
-
-            <div className="mt-6 rounded-3xl bg-slate-50 p-6">
-              <div className="h-48 rounded-[20px] border-2 border-dashed border-slate-200" />
-            </div>
-          </div>
+          <DailyCard
+            title="Why spaced repetition works better than cramming"
+            description="Reviewing information in smaller sessions over time helps your brain store knowledge more effectively and remember it longer."
+            readTime="2 min read"
+          />
 
           <div className="grid gap-6">
             <div className="rounded-[28px] border border-slate-200/80 bg-white p-6 shadow-[0_16px_40px_rgba(15,23,42,0.06)]">
