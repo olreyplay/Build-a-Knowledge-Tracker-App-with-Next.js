@@ -1,4 +1,5 @@
 import { DailyCard } from "@/components/daily-card";
+import { dailyKnowledge } from "@/data/knowledge-data";
 
 export default function Home() {
   return (
@@ -25,9 +26,9 @@ export default function Home() {
 
         <section className="mt-6 grid gap-6 xl:grid-cols-[1.3fr_0.7fr]">
           <DailyCard
-            title="Why spaced repetition works better than cramming"
-            description="Reviewing information in smaller sessions over time helps your brain store knowledge more effectively and remember it longer."
-            readTime="2 min read"
+            title={dailyKnowledge.title}
+            description={dailyKnowledge.description}
+            readTime={dailyKnowledge.readTime}
           />
 
           <div className="grid gap-6">
