@@ -2,12 +2,14 @@ type ProgressCardProps = {
   totalCards: number;
   totalCategories: number;
   selectedCategory: string;
+  completedToday: boolean;
 };
 
 export function ProgressCard({
   totalCards,
   totalCategories,
   selectedCategory,
+  completedToday,
 }: ProgressCardProps) {
   return (
     <section className="rounded-[28px] border border-slate-200/80 bg-white p-6 shadow-[0_16px_40px_rgba(15,23,42,0.06)]">
@@ -19,7 +21,7 @@ export function ProgressCard({
         Learning summary
       </h2>
 
-      <div className="mt-6 grid gap-3 sm:grid-cols-3 xl:grid-cols-1 2xl:grid-cols-3">
+      <div className="mt-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-1 2xl:grid-cols-2">
         <div className="rounded-[22px] bg-slate-50 p-4">
           <p className="text-sm text-slate-500">Total cards</p>
           <p className="mt-2 text-3xl font-semibold tracking-tight text-slate-900">
@@ -38,6 +40,17 @@ export function ProgressCard({
           <p className="text-sm text-slate-500">Active filter</p>
           <p className="mt-2 text-lg font-semibold tracking-tight text-slate-900">
             {selectedCategory}
+          </p>
+        </div>
+
+        <div className="rounded-[22px] bg-slate-50 p-4">
+          <p className="text-sm text-slate-500">Today status</p>
+          <p
+            className={`mt-2 text-lg font-semibold tracking-tight ${
+              completedToday ? "text-emerald-600" : "text-slate-900"
+            }`}
+          >
+            {completedToday ? "Completed" : "Not completed"}
           </p>
         </div>
       </div>

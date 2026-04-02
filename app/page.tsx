@@ -59,6 +59,7 @@ export default function Home() {
               totalCards={knowledgeCards.length}
               totalCategories={categories.length}
               selectedCategory={selectedCategory}
+              completedToday={isDailyCardCompleted}
             />
 
             <Categories
