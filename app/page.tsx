@@ -1,5 +1,6 @@
 import { DailyCard } from "@/components/daily-card";
-import { dailyKnowledge } from "@/data/knowledge-data";
+import { KnowledgeLibrary } from "@/components/knowledge-library";
+import { dailyKnowledge, knowledgeCards } from "@/data/knowledge-data";
 
 export default function Home() {
   return (
@@ -56,28 +57,9 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="mt-6 rounded-[28px] border border-slate-200/80 bg-white p-6 shadow-[0_16px_40px_rgba(15,23,42,0.06)]">
-          <div className="flex items-center justify-between gap-4">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-400">
-                Knowledge Library
-              </p>
-              <h2 className="mt-2 text-2xl font-semibold tracking-tight text-slate-900">
-                All learning cards
-              </h2>
-            </div>
-
-            <div className="rounded-full bg-slate-100 px-3 py-1 text-sm font-medium text-slate-500">
-              0 cards
-            </div>
-          </div>
-
-          <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-            <div className="h-40 rounded-[22px] bg-slate-50" />
-            <div className="h-40 rounded-[22px] bg-slate-50" />
-            <div className="h-40 rounded-[22px] bg-slate-50" />
-          </div>
-        </section>
+        <div className="mt-6">
+          <KnowledgeLibrary cards={knowledgeCards} />
+        </div>
       </div>
     </main>
   );
