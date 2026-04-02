@@ -1,8 +1,11 @@
+import { Categories } from "@/components/categories";
 import { DailyCard } from "@/components/daily-card";
 import { KnowledgeLibrary } from "@/components/knowledge-library";
 import { dailyKnowledge, knowledgeCards } from "@/data/knowledge-data";
 
 export default function Home() {
+  const categories = [...new Set(knowledgeCards.map((card) => card.category))];
+
   return (
     <main className="min-h-screen bg-[#f3f6fb] text-slate-900">
       <div className="mx-auto flex min-h-screen max-w-7xl flex-col px-4 py-6 sm:px-6 lg:px-8">
@@ -44,16 +47,7 @@ export default function Home() {
               <div className="mt-6 h-28 rounded-[20px] bg-slate-50" />
             </div>
 
-            <div className="rounded-[28px] border border-slate-200/80 bg-white p-6 shadow-[0_16px_40px_rgba(15,23,42,0.06)]">
-              <p className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-400">
-                Categories
-              </p>
-              <h2 className="mt-2 text-2xl font-semibold tracking-tight text-slate-900">
-                Topic filters
-              </h2>
-
-              <div className="mt-6 h-28 rounded-[20px] bg-slate-50" />
-            </div>
+            <Categories categories={categories} />
           </div>
         </section>
 
